@@ -207,7 +207,7 @@ e.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
 ![](READMErmd_files/figure-markdown_strict/partE-1.png)
 
 The least squares line from regressing `Horsepower` onto `Weight` is:
-$\\hat{\\text{Horesepower}} = -57.7382032 + 0.0655947 \\times \\text{Weight}.$
+*Y*<sub>*h**a**t*</sub> =  -57.7382032 + 0.0655947  × Weight.
 The theoretical model for least squares regression is:
 *Y* = *β*<sub>0</sub> + *β*<sub>1</sub>*x* + *ϵ* where
 *ϵ* ∼ *N*(0, *σ*<sup>2</sup>).
