@@ -76,20 +76,6 @@ Notes:
 Code chunks
 -----------
 
-1.  The first code chunk named `setup` has local options `echo = FALSE`,
-    `results= 'hide'`, `message = FALSE`, and `warning = FALSE`. These
-    options have the chunk execute without echoing the code, displaying
-    any results, messages, or warnings in the console. The global
-    options for the document are defined with `knitr::opts_chunk$set()`
-    (shown below). After the global options are defined, a character
-    vector (`PackagesUsed`) is created with the names of the packages
-    used in this document. The bibliographic information for the
-    packages is automatically written to a file with the `write_bib()`
-    function. Last, the packages are loaded and attached. If your
-    installation does not have any of the packages referenced in
-    `PackagesUsed`, you should install the missing packages using the
-    function `install.packages()`.
-
 <!-- -->
 
     knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6,  
@@ -102,6 +88,20 @@ Code chunks
     knitr::write_bib(PackagesUsed, file = "./References/PackagesUsed.bib")
     # Load packages
     lapply(PackagesUsed, library, character.only = TRUE)
+
+1.  The first code chunk named `setup` has local options `echo = FALSE`,
+    `results= 'hide'`, `message = FALSE`, and `warning = FALSE`. These
+    options have the chunk execute without echoing the code, displaying
+    any results, messages, or warnings in the console. The global
+    options for the document are defined with `knitr::opts_chunk$set()`
+    (shown above). After the global options are defined, a character
+    vector (`PackagesUsed`) is created with the names of the packages
+    used in this document. The bibliographic information for the
+    packages is automatically written to a file with the `write_bib()`
+    function. Last, the packages are loaded and attached. If your
+    installation does not have any of the packages referenced in
+    `PackagesUsed`, you should install the missing packages using the
+    function `install.packages()`.
 
 2.  The second code chunk named `load` uses the local options
     `echo = TRUE`, `comment = NA`, and `prompt = TRUE`. The
