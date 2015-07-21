@@ -76,8 +76,6 @@ Notes:
 Code chunks
 -----------
 
-<!-- -->
-
     knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6,  
                           fig.width = 6, prompt = FALSE, highlight = TRUE, 
                           tidy = FALSE, warning = FALSE, message = FALSE, 
@@ -94,7 +92,7 @@ Code chunks
     options have the chunk execute without echoing the code, displaying
     any results, messages, or warnings in the console. The global
     options for the document are defined with `knitr::opts_chunk$set()`
-    (shown above). After the global options are defined, a character
+    (shown below). After the global options are defined, a character
     vector (`PackagesUsed`) is created with the names of the packages
     used in this document. The bibliographic information for the
     packages is automatically written to a file with the `write_bib()`
@@ -136,7 +134,7 @@ Code chunks
     all code chunks without evaluating the code with the options
     `echo = TRUE`, `ref.label = all_labels()`, and `eval = FALSE`.
 
-10.  The tenth code chunk named `SessionInfo` uses the local option
+10. The tenth code chunk named `SessionInfo` uses the local option
     `echo = TRUE` to show the results of `sessionInfo()` in the console.
 
 ------------------------------------------------------------------------
@@ -178,17 +176,17 @@ function `str()` on the `Cars93` data frame.
      $ Origin            : Factor w/ 2 levels "USA","non-USA": 2 2 2 2 2 1 1 1 1 1 ...
      $ Make              : Factor w/ 93 levels "Acura Integra",..: 1 2 4 3 5 6 7 9 8 10 ...
 
-a.  Create density histograms for the variables `Min.Price`,
+1.  Create density histograms for the variables `Min.Price`,
     `Max.Price`, `Weight`, and `Length` variables using a different
     color for each histogram.
 
 ![](READMErmd_files/figure-markdown_strict/partA-1.png)
 
-b.  Superimpose estimated density curves over the histograms.
+1.  Superimpose estimated density curves over the histograms.
 
 ![](READMErmd_files/figure-markdown_strict/partB-1.png)
 
-c.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
+1.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
     a box and whiskers plot of Price for every type of vehicle according
     to the drive train. Do you observe any differences between prices?
     *Rear wheel drive vehicles are generally more expensive than either
@@ -196,12 +194,12 @@ c.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
 
 ![](READMErmd_files/figure-markdown_strict/partC-1.png)
 
-d.  Create a graph similar to the one created in (c) using functions
+1.  Create a graph similar to the one created in (c) using functions
     from **ggplot2** (Wickham and Chang 2015).
 
 ![](READMErmd_files/figure-markdown_strict/partD-1.png)
 
-e.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
+1.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
     the least squares line from regressing `Horsepower` onto `Weight`.
     Write out the least squares line and the theoretical least squares
     model.

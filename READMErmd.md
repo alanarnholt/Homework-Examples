@@ -76,6 +76,17 @@ Notes:
 Code chunks
 -----------
 
+    knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6,  
+                          fig.width = 6, prompt = FALSE, highlight = TRUE, 
+                          tidy = FALSE, warning = FALSE, message = FALSE, 
+                          echo = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 65))
+    # Lists of R packages used
+    PackagesUsed <- c("PASWR2", "ggplot2", "knitr", "MASS", "DT", "lattice", "rmarkdown")
+    # Write bib information
+    knitr::write_bib(PackagesUsed, file = "./References/PackagesUsed.bib")
+    # Load packages
+    lapply(PackagesUsed, library, character.only = TRUE)
+
 1.  The first code chunk named `setup` has local options `echo = FALSE`,
     `results= 'hide'`, `message = FALSE`, and `warning = FALSE`. These
     options have the chunk execute without echoing the code, displaying
@@ -90,53 +101,40 @@ Code chunks
     `PackagesUsed`, you should install the missing packages using the
     function `install.packages()`.
 
-<!-- -->
-
-    knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6,  
-                          fig.width = 6, prompt = FALSE, highlight = TRUE, 
-                          tidy = FALSE, warning = FALSE, message = FALSE, 
-                          echo = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 65))
-    # Lists of R packages used
-    PackagesUsed <- c("PASWR2", "ggplot2", "knitr", "MASS", "DT", "lattice", "rmarkdown")
-    # Write bib information
-    knitr::write_bib(PackagesUsed, file = "./References/PackagesUsed.bib")
-    # Load packages
-    lapply(PackagesUsed, library, character.only = TRUE)
-
-1.  The second code chunk named `load` uses the local options
+2.  The second code chunk named `load` uses the local options
     `echo = TRUE`, `comment = NA`, and `prompt = TRUE`. The
     `echo = TRUE` overwrites the global option `echo = FALSE` and echoes
     all `R` code and output to the console. The option `comment = NA`
     removes the default comment (`##`), and the option `prompt = TRUE`
     displays the `R` prompt symbol (`>`).
 
-2.  The third code chunk named `partA` changes the height and width of
+3.  The third code chunk named `partA` changes the height and width of
     the plot used in the graphics device from the global settings of 5
     and 5, to 12 and 12 with the options `fig.height = 12`, and
     `fig.width = 12`.
 
-3.  The fourth code chunk named `partB` changes the height and width of
+4.  The fourth code chunk named `partB` changes the height and width of
     the plot used in the graphics device from the global settings of 5
     and 5, to 12 and 12 with the options `fig.height = 12`, and
     `fig.width = 12`.
 
-4.  The fifth code chunk named `partC` does not overwrite any of the
+5.  The fifth code chunk named `partC` does not overwrite any of the
     global option setting.
 
-5.  The sixth code chunk named `partD` does not overwrite any of the
+6.  The sixth code chunk named `partD` does not overwrite any of the
     global options.
 
-6.  The seventh code chunk named `partE` hides output send to the
+7.  The seventh code chunk named `partE` hides output send to the
     console with the local option `results = "hide"`.
 
-7.  The eighth code chunk named `tablestuff` uses the default global
+8.  The eighth code chunk named `tablestuff` uses the default global
     options.
 
-8.  The ninth code chunk named `appendix` shows all of the code used for
+9.  The ninth code chunk named `appendix` shows all of the code used for
     all code chunks without evaluating the code with the options
     `echo = TRUE`, `ref.label = all_labels()`, and `eval = FALSE`.
 
-9.  The tenth code chunk named `SessionInfo` uses the local option
+10. The tenth code chunk named `SessionInfo` uses the local option
     `echo = TRUE` to show the results of `sessionInfo()` in the console.
 
 ------------------------------------------------------------------------
