@@ -176,17 +176,17 @@ function `str()` on the `Cars93` data frame.
      $ Origin            : Factor w/ 2 levels "USA","non-USA": 2 2 2 2 2 1 1 1 1 1 ...
      $ Make              : Factor w/ 93 levels "Acura Integra",..: 1 2 4 3 5 6 7 9 8 10 ...
 
-1.  Create density histograms for the variables `Min.Price`,
+a.  Create density histograms for the variables `Min.Price`,
     `Max.Price`, `Weight`, and `Length` variables using a different
     color for each histogram.
 
 ![](READMErmd_files/figure-markdown_strict/partA-1.png)
 
-1.  Superimpose estimated density curves over the histograms.
+b.  Superimpose estimated density curves over the histograms.
 
 ![](READMErmd_files/figure-markdown_strict/partB-1.png)
 
-1.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
+c.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
     a box and whiskers plot of Price for every type of vehicle according
     to the drive train. Do you observe any differences between prices?
     *Rear wheel drive vehicles are generally more expensive than either
@@ -194,12 +194,12 @@ function `str()` on the `Cars93` data frame.
 
 ![](READMErmd_files/figure-markdown_strict/partC-1.png)
 
-1.  Create a graph similar to the one created in (c) using functions
+d.  Create a graph similar to the one created in (c) using functions
     from **ggplot2** (Wickham and Chang 2015).
 
 ![](READMErmd_files/figure-markdown_strict/partD-1.png)
 
-1.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
+e.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
     the least squares line from regressing `Horsepower` onto `Weight`.
     Write out the least squares line and the theoretical least squares
     model.
