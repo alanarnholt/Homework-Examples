@@ -171,7 +171,7 @@ summary(mod_lm)
 ```
 
 The least squares line from regressing `Horsepower` onto `Weight` is:
-$Y_{hat} =$ `r coef(mod_lm)[1]` + `r coef(mod_lm)[2]` $\times \text{Weight}.$
+$\text{Horsepower}_{hat} =$ `r coef(mod_lm)[1]` + `r coef(mod_lm)[2]` $\times \text{Weight}.$
 The theoretical model for least squares regression is:
 $Y = \beta_0 + \beta_1 x + \epsilon$ where $\epsilon \sim N(0, \sigma^2).$
 
