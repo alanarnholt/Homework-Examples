@@ -103,40 +103,40 @@ Code chunks
     # Load packages
     lapply(PackagesUsed, library, character.only = TRUE)
 
-1.  The second code chunk named `load` uses the local options
+2.  The second code chunk named `load` uses the local options
     `echo = TRUE`, `comment = NA`, and `prompt = TRUE`. The
     `echo = TRUE` overwrites the global option `echo = FALSE` and echoes
     all `R` code and output to the console. The option `comment = NA`
     removes the default comment (`##`), and the option `prompt = TRUE`
     displays the `R` prompt symbol (`>`).
 
-2.  The third code chunk named `partA` changes the height and width of
+3.  The third code chunk named `partA` changes the height and width of
     the plot used in the graphics device from the global settings of 5
     and 5, to 12 and 12 with the options `fig.height = 12`, and
     `fig.width = 12`.
 
-3.  The fourth code chunk named `partB` changes the height and width of
+4.  The fourth code chunk named `partB` changes the height and width of
     the plot used in the graphics device from the global settings of 5
     and 5, to 12 and 12 with the options `fig.height = 12`, and
     `fig.width = 12`.
 
-4.  The fifth code chunk named `partC` does not overwrite any of the
+5.  The fifth code chunk named `partC` does not overwrite any of the
     global option setting.
 
-5.  The sixth code chunk named `partD` does not overwrite any of the
+6.  The sixth code chunk named `partD` does not overwrite any of the
     global options.
 
-6.  The seventh code chunk named `partE` hides output send to the
+7.  The seventh code chunk named `partE` hides output send to the
     console with the local option `results = "hide"`.
 
-7.  The eighth code chunk named `tablestuff` uses the default global
+8.  The eighth code chunk named `tablestuff` uses the default global
     options.
 
-8.  The ninth code chunk named `appendix` shows all of the code used for
+9.  The ninth code chunk named `appendix` shows all of the code used for
     all code chunks without evaluating the code with the options
     `echo = TRUE`, `ref.label = all_labels()`, and `eval = FALSE`.
 
-9.  The tenth code chunk named `SessionInfo` uses the local option
+10.  The tenth code chunk named `SessionInfo` uses the local option
     `echo = TRUE` to show the results of `sessionInfo()` in the console.
 
 ------------------------------------------------------------------------
@@ -178,17 +178,17 @@ function `str()` on the `Cars93` data frame.
      $ Origin            : Factor w/ 2 levels "USA","non-USA": 2 2 2 2 2 1 1 1 1 1 ...
      $ Make              : Factor w/ 93 levels "Acura Integra",..: 1 2 4 3 5 6 7 9 8 10 ...
 
-1.  Create density histograms for the variables `Min.Price`,
+a.  Create density histograms for the variables `Min.Price`,
     `Max.Price`, `Weight`, and `Length` variables using a different
     color for each histogram.
 
 ![](READMErmd_files/figure-markdown_strict/partA-1.png)
 
-1.  Superimpose estimated density curves over the histograms.
+b.  Superimpose estimated density curves over the histograms.
 
 ![](READMErmd_files/figure-markdown_strict/partB-1.png)
 
-1.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
+c.  Use the `bwplot()` function from **lattice** (Sarkar 2015) to create
     a box and whiskers plot of Price for every type of vehicle according
     to the drive train. Do you observe any differences between prices?
     *Rear wheel drive vehicles are generally more expensive than either
@@ -196,12 +196,12 @@ function `str()` on the `Cars93` data frame.
 
 ![](READMErmd_files/figure-markdown_strict/partC-1.png)
 
-1.  Create a graph similar to the one created in (c) using functions
+d.  Create a graph similar to the one created in (c) using functions
     from **ggplot2** (Wickham and Chang 2015).
 
 ![](READMErmd_files/figure-markdown_strict/partD-1.png)
 
-1.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
+e.  Create scatter plot of `Horsepower` versus `Weight`, and superimpose
     the least squares line from regressing `Horsepower` onto `Weight`.
     Write out the least squares line and the theoretical least squares
     model.
