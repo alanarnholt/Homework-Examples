@@ -1,0 +1,205 @@
+---
+title: "Homework with **rmarkdown** and **knitr**"
+author: "Alan T. Arnholt"
+date: '`r Sys.Date()`'
+output: html_document
+bibliography:
+- References/PackagesUsed.bib
+- References/Main.bib
+---
+
+```{r, label = "setup", echo = FALSE, results= 'hide', message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6, 
+                      fig.width = 6, prompt = FALSE, highlight = TRUE, 
+                      tidy = FALSE, warning = FALSE, message = FALSE, 
+                      echo = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 65))
+# Lists of R packages used
+PackagesUsed <- c("PASWR2", "ggplot2", "knitr", "MASS", "DT", "lattice", "rmarkdown")
+# Write bib information
+knitr::write_bib(PackagesUsed, file = "./References/PackagesUsed.bib")
+# Load packages
+lapply(PackagesUsed, library, character.only = TRUE)
+```
+
+This document assumes you are using the [Rstudio](https://www.rstudio.com/) [IDE](https://www.rstudio.com/products/RStudio/).
+The best way to obtain this document and examine all the files associated with the project is to: 
+
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own [GitHub](https://github.com/) account.
+2. Clone the forked repository into a local RStudio [project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).  
+
+To clone the repository, you will need a recent version of [Git](http://git-scm.com/) installed on your machine. This [video]() shows how to clone the repository using the RStudio [IDE](https://www.rstudio.com/products/RStudio/).  Several features from [Pandoc](http://pandoc.org/) [@Pandoc2015], **rmarkdown** [@R-rmarkdown], and **knitr** [@R-knitr] are illustrated in the document including numerous **knitr** chunk options (both local and global) which are fully documented [online](http://yihui.name/knitr/options/).  [Rstudio](https://www.rstudio.com/) has a great "[cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)" for writing R markdown documents.  Further information about R markdown can be found [online](http://rmarkdown.rstudio.com/).  This document shows `R` code in the answers only when specifically directed in the question; however, all `R` code used in the document is visible in an **R-Code Appendix**.  The [YAML](http://yaml.org/) for this document is written as:
+
+```
+---
+title: "Homework with **rmarkdown** and **knitr**"
+author: "Alan T. Arnholt"
+date: '`r Sys.Date()`'
+output: html_document
+bibliography:
+- References/PackagesUsed.bib
+- References/Main.bib
+---
+```
+
+To add a bibliography to your document, you will need to create one or more `*.bib` files and add the YAML entry `bibliography: PathTo/file.bib` or use a list as above for multiple `*.bib` files.  The **knitr** function `write_bib()` [@R-knitr] is used to create *automagically* a `*.bib` file of the `R` packages used in this document and store the file in `./References/PackagesUsed.bib` (See the **R-Code Appendix**).  The two entries in `./References/Main.bib` were created by hand.  The citation management system [Zotero](https://www.zotero.org/) can create `BibTeX` files. This [4 minute video](https://www.youtube.com/watch?v=erTi298SX_w&list=PLJBNI3mCp9g0wsSDK111qgimqVF1dwPXO) illustrates how to store bibliographic information using Zotero, and the following [2 minute video](https://www.youtube.com/watch?v=ixUF3BN_KOA&list=PLJBNI3mCp9g0wsSDK111qgimqVF1dwPXO&index=3) shows how to export the bibliographic information from Zotero to a `BibTeX` file.  Inline `LaTeX` equations and display equations are placed between single and double `$` symbols, respectively.  To learn more about `LaTeX`, see online resources such as [https://en.wikibooks.org/wiki/LaTeX](https://en.wikibooks.org/wiki/LaTeX).  If you need help with how to write a symbol in `LaTeX`, you can draw the symbol at this [site](http://detexify.kirelabs.org/classify.html); and `LaTeX` code corresponding to the user drawn symbol will appear.
+
+## Notes:
+
+1. The [RStudio](https://www.rstudio.com/) [IDE](https://www.rstudio.com/products/RStudio/) will populate most entries for the YAML; however, you will need manually to add the `bibliography` entry.
+2. To create a PDF document (you must have [LaTeX](http://latex-project.org/ftp.html) installed) or a Word document, change the YAML entry `output: html_document` to `output: pdf_document` or `output: word_document`, respectively. 
+3. To define the styles in a Word document generated from R markdown see this [video](https://vimeo.com/110804387).
+
+## Code chunks
+
+1.  The first code chunk named `setup` has local options `echo = FALSE`, `results= 'hide'`, `message = FALSE`, and `warning = FALSE`.  These options have the chunk execute without echoing the code, displaying any results, messages, or warnings in the console.  The global options for the document are defined with `knitr::opts_chunk$set()` (shown below). After the global options are defined, a character vector (`PackagesUsed`) is created with the names of the packages used in this document.  The bibliographic information for the packages is automatically written to a file with the `write_bib()` function. Last, the packages are loaded and attached.  If your installation does not have any of the packages referenced in `PackagesUsed`, you should install the missing packages using the function `install.packages()`.
+
+```
+knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6,  
+                      fig.width = 6, prompt = FALSE, highlight = TRUE, 
+                      tidy = FALSE, warning = FALSE, message = FALSE, 
+                      echo = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 65))
+# Lists of R packages used
+PackagesUsed <- c("PASWR2", "ggplot2", "knitr", "MASS", "DT", "lattice", "rmarkdown")
+# Write bib information
+knitr::write_bib(PackagesUsed, file = "./References/PackagesUsed.bib")
+# Load packages
+lapply(PackagesUsed, library, character.only = TRUE)
+```
+
+2. The second code chunk named `load` uses the local options `echo = TRUE`, `comment = NA`, and `prompt = TRUE`. The `echo = TRUE` overwrites the global option `echo = FALSE` and echoes all `R` code and output to the console.  The option `comment = NA` removes the default comment (`##`), and the option `prompt = TRUE` displays the `R` prompt symbol (`>`). 
+
+3. The third code chunk named `partA` changes the height and width of the plot used in the graphics device from the global settings of 5 and 5, to 12 and 12 with the options `fig.height = 12`, and `fig.width = 12`.
+
+4. The fourth code chunk named `partB` changes the height and width of the plot used in the graphics device from the global settings of 5 and 5, to 12 and 12 with the options `fig.height = 12`, and `fig.width = 12`.
+
+5. The fifth code chunk named `partC` does not overwrite any of the global option setting.
+
+6. The sixth code chunk named `partD` does not overwrite any of the global options.
+
+7. The seventh code chunk named `partE` hides output send to the console with the local option `results = "hide"`.
+
+8. The eighth code chunk named `tablestuff` uses the default global options.
+
+9. The ninth code chunk named `appendix` shows all of the code used for all code chunks without evaluating the code with the options `echo = TRUE`, `ref.label = all_labels()`, and `eval = FALSE`.
+
+10. The tenth code chunk named `SessionInfo` uses the local option `echo = TRUE` to show the results of `sessionInfo()` in the console.
+
+________________________________________________________________________
+
+
+#### Modified question 2 from chapter 2 of [@PASWR2E] with brief answers.
+
+Load `Cars93` from the **MASS** package [@R-MASS], and use the function `str()` on the `Cars93` data frame.  
+
+```{r, label = "load", echo = TRUE, comment = NA, prompt = TRUE}
+library(MASS)  
+str(Cars93)
+```
+
+
+(a) Create density histograms for the variables `Min.Price`, `Max.Price`, `Weight`, and `Length` variables using a different color for each histogram.
+
+```{r, label = "partA", fig.height = 12, fig.width = 12}
+# Create graphs for part a
+p1 <- ggplot(data = Cars93, aes(x = Min.Price, y = ..density..)) + 
+  geom_histogram(fill = "green") + 
+  theme_bw()
+p2 <- ggplot(data = Cars93, aes(x = Max.Price, y = ..density..)) + 
+  geom_histogram(fill = "pink") + 
+  theme_bw()
+p3 <- ggplot(data = Cars93, aes(x = Weight, y = ..density..)) + 
+  geom_histogram(fill = "yellow") + 
+  theme_bw()
+p4 <- ggplot(data = Cars93, aes(x = Length, y = ..density..)) + 
+  geom_histogram(fill = "lightblue") + 
+  theme_bw()
+multiplot(p1, p2, p3, p4, cols = 2)
+```
+
+(b) Superimpose estimated density curves over the histograms.
+
+```{r, label = "partB", fig.height = 12, fig.width = 12}
+# Create graphs for part b
+p1 <- ggplot(data = Cars93, aes(x = Min.Price, y = ..density..)) + 
+  geom_histogram(fill = "green") + 
+  theme_bw() + 
+  geom_density()
+p2 <- ggplot(data = Cars93, aes(x = Max.Price, y = ..density..)) + 
+  geom_histogram(fill = "pink") + 
+  theme_bw() + 
+  geom_density()
+p3 <- ggplot(data = Cars93, aes(x = Weight, y = ..density..)) + 
+  geom_histogram(fill = "yellow") + 
+  theme_bw() + 
+  geom_density()
+p4 <- ggplot(data = Cars93, aes(x = Length, y = ..density..)) + 
+  geom_histogram(fill = "lightblue") + 
+  theme_bw() + 
+  geom_density()
+multiplot(p1, p2, p3, p4, cols = 2)
+```
+
+(c) Use the `bwplot()` function from **lattice** [@R-lattice] to create a box and whiskers plot of Price for every type of vehicle according to the drive train. Do you observe any differences between prices? *Rear wheel drive vehicles are generally more expensive than either 4WD or front wheel drive vehicles.*
+
+```{r, label = "partC"}
+# Graph for part c
+bwplot(Price ~ DriveTrain, data = Cars93)
+```
+
+(d) Create a graph similar to the one created in (c) using functions from **ggplot2** [@R-ggplot2].
+
+```{r, label = "partD"}
+# Graph for part d
+ggplot(data = Cars93, aes(x = DriveTrain, y = Price)) +
+  geom_boxplot() +
+  theme_bw()
+```
+
+(e) Create scatter plot of `Horsepower` versus `Weight`, and superimpose the least squares line from regressing `Horsepower` onto `Weight`.  Write out the least squares line and the theoretical least squares model.
+
+```{r, label = "partE", results = "hide"}
+# Graph for part e
+ggplot(data = Cars93, aes(x = Weight, y = Horsepower)) + 
+  geom_point() + 
+  stat_smooth(method = "lm") + 
+  theme_bw()
+mod_lm <- lm(Horsepower ~ Weight, data = Cars93)
+summary(mod_lm)
+```
+
+The least squares line from regressing `Horsepower` onto `Weight` is:
+$\widehat{\text{Horsepower}} = `r coef(mod_lm)[1]` + `r coef(mod_lm)[2]`\times \text{Weight}.$
+The theoretical model for least squares regression is:
+$Y = \beta_0 + \beta_1 x + \epsilon$ where $\epsilon \sim N(0, \sigma^2).$
+
+-------------------------------------------------------------------------------
+
+Use the data frame `EPIDURALF` from the **PASWR2** package [@R-PASWR2], and create a table of the average weight of parturient women classified by `ease` and `treatment`.
+
+```{r, label = "tablestuff"}
+# Create requested table with kable
+# levels in order of difficulty
+EPIDURALF$ease <- factor(EPIDURALF$ease, levels = c("Easy", "Difficult", "Impossible")) 
+TS <- with(data = EPIDURALF, {tapply(kg, list(ease, treatment), mean)})
+DF <- data.frame(TS)
+knitr::kable(DF, col.names = c("Hamstring Stretch", "Traditional Sitting"), 
+             caption = "Table: Mean weight (kg.) of parturient women 
+             classified by `ease` and `treatment`")
+```
+
+--------------------------------------------------------------------------
+
+# R-Code Appendix
+
+```{r, label = "appendix", echo = TRUE, ref.label = all_labels(), eval = FALSE}
+```
+
+It is always a good idea to include your `sessionInfo()`:
+
+```{r, label = "SessionInfo", echo = TRUE}
+sessionInfo()
+```
+--------------------------------------------------------------------------
+
+# References
+
