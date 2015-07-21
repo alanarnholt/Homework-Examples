@@ -2,7 +2,7 @@
 title: "Homework with **rmarkdown** and **knitr**"
 author: "Alan T. Arnholt"
 date: '`r Sys.Date()`'
-output: html_document
+output: pdf_document
 bibliography:
 - References/PackagesUsed.bib
 - References/Main.bib

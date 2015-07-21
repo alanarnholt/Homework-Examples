@@ -9,7 +9,7 @@ bibliography:
 ---
 
 ```{r, label = "setup", echo = FALSE, results= 'hide', message = FALSE, warning = FALSE}
-knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6, 
+knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6, fig.align = "center", 
                       fig.width = 6, prompt = FALSE, highlight = TRUE, 
                       tidy = FALSE, warning = FALSE, message = FALSE, 
                       echo = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 65))
@@ -41,20 +41,16 @@ bibliography:
 ---
 ```
 
-To add a bibliography to your document, you will need to create one or more `*.bib` files and add the YAML entry `bibliography: PathTo/file.bib` or use a list as above for multiple `*.bib` files.  The **knitr** function `write_bib()` [@R-knitr] is used to create *automagically* a `*.bib` file of the `R` packages used in this document and store the file in `./References/PackagesUsed.bib` (See the **R-Code Appendix**).  The two entries in `./References/Main.bib` were created by hand.  The citation management system [Zotero](https://www.zotero.org/) can create `BibTeX` files. This [4 minute video](https://www.youtube.com/watch?v=erTi298SX_w&list=PLJBNI3mCp9g0wsSDK111qgimqVF1dwPXO) illustrates how to store bibliographic information using Zotero, and the following [2 minute video](https://www.youtube.com/watch?v=ixUF3BN_KOA&list=PLJBNI3mCp9g0wsSDK111qgimqVF1dwPXO&index=3) shows how to export the bibliographic information from Zotero to a `BibTeX` file.  Inline `LaTeX` equations and display equations are placed between single and double `$` symbols, respectively.  To learn more about `LaTeX`, see online resources such as [https://en.wikibooks.org/wiki/LaTeX](https://en.wikibooks.org/wiki/LaTeX).  If you need help with how to write a symbol in `LaTeX`, you can draw the symbol at this [site](http://detexify.kirelabs.org/classify.html); and `LaTeX` code corresponding to the user drawn symbol will appear.
+To add a bibliography to your document, you will need to create one or more `*.bib` files and add the YAML entry `bibliography: PathTo/file.bib` or use a list as above for multiple `*.bib` files.  The **knitr** function `write_bib()` [@R-knitr] is used to create *automagically* a `*.bib` file of the `R` packages used in this document and store the file in `./References/PackagesUsed.bib` (See the **R-Code Appendix**).  The two entries in `./References/Main.bib` were created by hand.  The citation management system [Zotero](https://www.zotero.org/) can create `BibTeX` files. This [4 minute video](https://www.youtube.com/watch?v=erTi298SX_w&list=PLJBNI3mCp9g0wsSDK111qgimqVF1dwPXO) illustrates how to store bibliographic information using Zotero, and the following [2 minute video](https://www.youtube.com/watch?v=ixUF3BN_KOA&list=PLJBNI3mCp9g0wsSDK111qgimqVF1dwPXO&index=3) shows how to export the bibliographic information from Zotero to a `BibTeX` file.  Inline $\LaTeX{}$ equations and display equations are placed between single and double `$` symbols, respectively.  To learn more about $\LaTeX{}$ see online resources such as [https://en.wikibooks.org/wiki/LaTeX](https://en.wikibooks.org/wiki/LaTeX).  If you need help with how to write a symbol in $\LaTeX{}$, you can draw the symbol at this [site](http://detexify.kirelabs.org/classify.html) and $\LaTeX{}$ code corresponding to the user drawn symbol will appear.
 
-## Notes:
-
-1. The [RStudio](https://www.rstudio.com/) [IDE](https://www.rstudio.com/products/RStudio/) will populate most entries for the YAML; however, you will need manually to add the `bibliography` entry.
-2. To create a PDF document (you must have [LaTeX](http://latex-project.org/ftp.html) installed) or a Word document, change the YAML entry `output: html_document` to `output: pdf_document` or `output: word_document`, respectively. 
-3. To define the styles in a Word document generated from R markdown see this [video](https://vimeo.com/110804387).
+**Note: The [RStudio](https://www.rstudio.com/) [IDE](https://www.rstudio.com/products/RStudio/) will populate most entries for the YAML; however, you will need manually to add the `bibliography` entry.**
 
 ## Code chunks
 
 1.  The first code chunk named `setup` has local options `echo = FALSE`, `results= 'hide'`, `message = FALSE`, and `warning = FALSE`.  These options have the chunk execute without echoing the code, displaying any results, messages, or warnings in the console.  The global options for the document are defined with `knitr::opts_chunk$set()` (shown below). After the global options are defined, a character vector (`PackagesUsed`) is created with the names of the packages used in this document.  The bibliographic information for the packages is automatically written to a file with the `write_bib()` function. Last, the packages are loaded and attached.  If your installation does not have any of the packages referenced in `PackagesUsed`, you should install the missing packages using the function `install.packages()`.
 
 ```
-knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6,  
+knitr::opts_chunk$set(fig.show = 'as.is', fig.height = 6, fig.align = "center", 
                       fig.width = 6, prompt = FALSE, highlight = TRUE, 
                       tidy = FALSE, warning = FALSE, message = FALSE, 
                       echo = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 65))
@@ -66,36 +62,45 @@ knitr::write_bib(PackagesUsed, file = "./References/PackagesUsed.bib")
 lapply(PackagesUsed, library, character.only = TRUE)
 ```
 
+Note: The chunk option `fig.align = "center"` should be omitted if you want to create either a PDF or Word document from the R markdown file.
+
 2. The second code chunk named `load` uses the local options `echo = TRUE`, `comment = NA`, and `prompt = TRUE`. The `echo = TRUE` overwrites the global option `echo = FALSE` and echoes all `R` code and output to the console.  The option `comment = NA` removes the default comment (`##`), and the option `prompt = TRUE` displays the `R` prompt symbol (`>`). 
 
-3. The third code chunk named `partA` changes the height and width of the plot used in the graphics device from the global settings of 5 and 5, to 12 and 12 with the options `fig.height = 12`, and `fig.width = 12`.
+3. The third code chunk named `datatable` uses the global options to create a Data Table.
 
-4. The fourth code chunk named `partB` changes the height and width of the plot used in the graphics device from the global settings of 5 and 5, to 12 and 12 with the options `fig.height = 12`, and `fig.width = 12`.
+4. The fourth code chunk named `partA` changes the height and width of the plot used in the graphics device from the global settings of 5 and 5, to 12 and 12 with the options `fig.height = 12`, and `fig.width = 12`.
 
-5. The fifth code chunk named `partC` does not overwrite any of the global option setting.
+5. The fifth code chunk named `partB` changes the height and width of the plot used in the graphics device from the global settings of 5 and 5, to 12 and 12 with the options `fig.height = 12`, and `fig.width = 12`.
 
-6. The sixth code chunk named `partD` does not overwrite any of the global options.
+6. The sixth code chunk named `partC` does not overwrite any of the global option setting.
 
-7. The seventh code chunk named `partE` hides output send to the console with the local option `results = "hide"`.
+7. The seventh code chunk named `partD` does not overwrite any of the global options.
 
-8. The eighth code chunk named `tablestuff` uses the default global options.
+8. The eighth code chunk named `partE` hides output send to the console with the local option `results = "hide"`.
 
-9. The ninth code chunk named `appendix` shows all of the code used for all code chunks without evaluating the code with the options `echo = TRUE`, `ref.label = all_labels()`, and `eval = FALSE`.
+9. The ninth code chunk named `tablestuff` uses the default global options.
 
-10. The tenth code chunk named `SessionInfo` uses the local option `echo = TRUE` to show the results of `sessionInfo()` in the console.
+10. The tenth code chunk named `appendix` shows all of the code used for all code chunks without evaluating the code with the options `echo = TRUE`, `ref.label = all_labels()`, and `eval = FALSE`.
+
+11. The eleventh code chunk named `SessionInfo` uses the local option `echo = TRUE` to show the results of `sessionInfo()` in the console.
 
 ________________________________________________________________________
 
 
 #### Modified question 2 from chapter 2 of [@PASWR2E] with brief answers.
 
-Load `Cars93` from the **MASS** package [@R-MASS], and use the function `str()` on the `Cars93` data frame.  
+Load `Cars93` from the **MASS** package [@R-MASS], and use the function `str()` on the `Cars93` data frame.  Create a Data Table using the **DT** package [@R-DT].
 
 ```{r, label = "load", echo = TRUE, comment = NA, prompt = TRUE}
 library(MASS)  
 str(Cars93)
 ```
 
+The following is a Data Table created with the **DT** package. 
+```{r, label = "datatable"}
+# Create Data Table with datatable
+DT::datatable(Cars93)
+```
 
 (a) Create density histograms for the variables `Min.Price`, `Max.Price`, `Weight`, and `Length` variables using a different color for each histogram.
 
@@ -178,13 +183,10 @@ Use the data frame `EPIDURALF` from the **PASWR2** package [@R-PASWR2], and crea
 
 ```{r, label = "tablestuff"}
 # Create requested table with kable
-# levels in order of difficulty
-EPIDURALF$ease <- factor(EPIDURALF$ease, levels = c("Easy", "Difficult", "Impossible")) 
+EPIDURALF$ease <- factor(EPIDURALF$ease, levels = c("Easy", "Difficult", "Impossible")) # levels in order of difficulty
 TS <- with(data = EPIDURALF, {tapply(kg, list(ease, treatment), mean)})
 DF <- data.frame(TS)
-knitr::kable(DF, col.names = c("Hamstring Stretch", "Traditional Sitting"), 
-             caption = "Table: Mean weight (kg.) of parturient women 
-             classified by `ease` and `treatment`")
+knitr::kable(DF, col.names = c("Hamstring Stretch", "Traditional Sitting"), caption = "Table: Mean weight (kg.) of parturient women classified by `ease` and `treatment`")
 ```
 
 --------------------------------------------------------------------------
