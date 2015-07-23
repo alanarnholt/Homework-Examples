@@ -29,7 +29,7 @@ written as:
     ---
     title: "Homework with **rmarkdown** and **knitr**"
     author: "Alan T. Arnholt"
-    date: '2015-07-21'
+    date: '2015-07-22'
     output: html_document
     bibliography:
     - References/PackagesUsed.bib
