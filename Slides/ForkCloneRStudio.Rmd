@@ -1,0 +1,39 @@
+---
+title: "Fork a Repository and Use RStudio 
+to Clone the Repository into an R Project"
+author: "Alan T. Arnholt"
+date: "July 24, 2015"
+output: beamer_presentation
+---
+
+## Preliminary Setup
+
+This presentation assumes you have configured Git and have a GitHub account.  If you need help configuring Git see <https://help.github.com/articles/set-up-git/>.
+
+
+## Forks
+
+* A *fork* is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+
+* Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.^[https://help.github.com/articles/fork-a-repo/]
+
+## Fork a GitHub Repository
+
+Forking a repository is a two-step process. 
+
+1.  On GitHub, navigate to the desired repository.  In this presentation we use  <https://github.com/alanarnholt/Homework-Examples>.
+2. In the top-right corner of the page, click **Fork**.
+
+You now have a *fork* of the original repository on your personal GitHub account.
+
+## Cloning Respositories into R Projects with RStudio
+
+When you create a repository on GitHub, it exists as a remote repository. You can create a local *clone* of your repository on your computer and sync between the two locations. To clone a repository into an R project with RStudio,
+
+1. Copy the URL in the `HTTPS clone URL` box to the clipboard for the desired repository.
+2. In RStudio, click `File > New Project > Version Control > Git`.
+3. Paste the copied URL from the clipboard in the `Repository URL:` box.
+4. Provide a name for the project in the `Project directory name:` box.
+5. Specify where you want the project to be stored in the `Create project as subdirectory of:` box.
+6. Click `Create Project` button.
+
