@@ -13,9 +13,9 @@ This presentation assumes you have configured Git and have a GitHub account.  If
 
 ## Forks
 
-* A *fork* is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+* A *fork* is a copy of a repository. Forking a repository allows you to experiment freely with changes without affecting the original project.
 
-* Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.^[https://help.github.com/articles/fork-a-repo/]
+* Most commonly, forks are used either to propose changes to someone else's project or to use someone else's project as a starting point for your own idea.^[https://help.github.com/articles/fork-a-repo/]
 
 ## Fork a GitHub Repository
 
