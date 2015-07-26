@@ -10,8 +10,8 @@ to:
     [project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
 
 To clone the repository, you will need a recent version of
-[Git](http://git-scm.com/) installed on your machine. This [video]()
-shows how to clone the repository using the RStudio
+[Git](http://git-scm.com/) installed on your machine. This [video](https://www.youtube.com/watch?v=YxZ8J2rqhEM)
+shows how to clone a repository using the RStudio
 [IDE](https://www.rstudio.com/products/RStudio/). Several features from
 [Pandoc](http://pandoc.org/) (MacFarlane 2015), **rmarkdown** (Allaire
 et al. 2015), and **knitr** (Xie 2015) are illustrated in the document
